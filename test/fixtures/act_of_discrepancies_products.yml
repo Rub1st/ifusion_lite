@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: act_of_discrepancies_products
+#
+#  id                    :bigint           not null, primary key
+#  code                  :string           default(""), not null
+#  invoice_product_id    :bigint           not null
+#  act_of_discrepancy_id :bigint           not null
+#  user_id               :bigint           not null
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
+one:
+  code: MyString
+  invoice_product: one
+  act_of_discrepancy: one
+
+two:
+  code: MyString
+  invoice_product: two
+  act_of_discrepancy: two

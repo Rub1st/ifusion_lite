@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: contracts
+#
+#  id                  :bigint           not null, primary key
+#  series_and_number   :string           default(""), not null
+#  valid_from          :date
+#  valid_for           :date
+#  note                :text
+#  currency_id         :bigint           not null
+#  type_of_exchange_id :bigint           not null
+#  type_of_payment_id  :bigint           not null
+#  type_of_contract_id :bigint           not null
+#  provider_id         :bigint
+#  customer_id         :bigint
+#  user_id             :bigint           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+one:
+  series_and_number: MyString
+  valid_from: 2021-02-01
+  valid_for: 2021-02-01
+  note: MyText
+  currency: one
+  type_of_exchange: one
+  type_of_payment: one
+  type_of_contract: one
+
+two:
+  series_and_number: MyString
+  valid_from: 2021-02-01
+  valid_for: 2021-02-01
+  note: MyText
+  currency: two
+  type_of_exchange: two
+  type_of_payment: two
+  type_of_contract: two

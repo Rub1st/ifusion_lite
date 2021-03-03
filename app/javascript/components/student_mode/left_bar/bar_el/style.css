@@ -1,0 +1,19 @@
+.for-children-list{
+  list-style-type: none;
+  font-size: 12pt;
+  margin-left: -8%;
+}
+
+p{
+  cursor: default;
+}
+
+.prelabel{
+  opacity: 0.7;
+  color: rgb(99, 97, 97);
+  text-decoration: none;
+}
+
+.prelabel:hover{
+  text-decoration: underline;
+}

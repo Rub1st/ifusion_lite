@@ -1,0 +1,18 @@
+.contract-add-form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid rgb(201, 199, 199);
+  height: 280px;
+  margin-top: 25px;
+}
+
+.table-field{
+  display: flex;
+  width: 1500px;
+  flex-direction: column;
+}
+
+.add-form-column{
+  margin-bottom: 25px;
+}

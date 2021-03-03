@@ -1,0 +1,1 @@
+export const CONTRACT_INDEX = 'CONTRACT_INDEX'

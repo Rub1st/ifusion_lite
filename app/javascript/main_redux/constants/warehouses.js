@@ -1,0 +1,1 @@
+export const WAREHOUSE_INDEX = 'WAREHOUSE_INDEX'

@@ -1,0 +1,40 @@
+# == Schema Information
+#
+# Table name: costs
+#
+#  id                 :bigint           not null, primary key
+#  invoice_product_id :bigint           not null
+#  wholesale_percent  :float            default(0.0), not null
+#  wholesale_value    :float            default(0.0), not null
+#  commercial_percent :float            default(0.0), not null
+#  commercial_value   :float            default(0.0), not null
+#  vat_percent        :float            default(0.0), not null
+#  vat_value          :float            default(0.0), not null
+#  retail_price       :float            default(0.0), not null
+#  cost               :float            default(0.0), not null
+#  user_id            :bigint           not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  invoice_product: one
+  wholesale_percent: 1.5
+  wholesale_value: 1.5
+  commercial_percent: 1.5
+  commercial_value: 1.5
+  vat_percent: 1.5
+  vat_value: 1.5
+  retail_price: 1.5
+  cost: 1.5
+
+two:
+  invoice_product: two
+  wholesale_percent: 1.5
+  wholesale_value: 1.5
+  commercial_percent: 1.5
+  commercial_value: 1.5
+  vat_percent: 1.5
+  vat_value: 1.5
+  retail_price: 1.5
+  cost: 1.5

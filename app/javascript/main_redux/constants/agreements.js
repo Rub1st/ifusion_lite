@@ -1,0 +1,1 @@
+export const AGREEMENT_INDEX = 'AGREEMENT_INDEX'
