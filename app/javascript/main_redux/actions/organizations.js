@@ -1,6 +1,6 @@
 import {
   ORGANIZATION_INDEX
-} from "../constants/organizations";
+} from "../constants";
 
 export const organizationIndex = (organizations) => ({
   type: ORGANIZATION_INDEX,

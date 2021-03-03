@@ -1,6 +1,6 @@
 import {
   INVOICE_INDEX
-} from "../constants/invoices";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

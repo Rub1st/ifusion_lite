@@ -1,6 +1,6 @@
 import {
   TYPE_OF_CONTRACTS_INDEX
-} from "../constants/type_of_contracts";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

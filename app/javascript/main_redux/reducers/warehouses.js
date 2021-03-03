@@ -1,6 +1,6 @@
 import {
   WAREHOUSE_INDEX
-} from "../constants/warehouses";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

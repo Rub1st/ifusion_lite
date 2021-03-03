@@ -1,6 +1,6 @@
 import {
   CURRENCIES_INDEX
-} from "../constants/currencies";
+} from "../constants";
 
 export const currenciesIndex = (currencies) => ({
   type: CURRENCIES_INDEX,

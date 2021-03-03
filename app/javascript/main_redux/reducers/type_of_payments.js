@@ -1,6 +1,6 @@
 import {
   TYPE_OF_PAYMENTS_INDEX
-} from "../constants/type_of_payments";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

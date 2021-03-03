@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
     t.string "short_name", default: "", null: false
     t.string "code", default: "", null: false
     t.float "price", default: 0.0, null: false
+    t.integer "count", default: 0, null: false
     t.float "summa_vat", default: 0.0, null: false
     t.float "cost", default: 0.0, null: false
     t.bigint "rate_vat_id", null: false

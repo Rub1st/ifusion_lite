@@ -1,6 +1,6 @@
 import {
   OPERATION_INDEX
-} from "../constants/operations";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

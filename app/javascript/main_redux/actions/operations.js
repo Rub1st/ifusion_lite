@@ -1,6 +1,6 @@
 import {
   OPERATION_INDEX
-} from "../constants/operations";
+} from "../constants";
 
 export const operationIndex = (operations) => ({
   type: OPERATION_INDEX,

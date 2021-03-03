@@ -1,6 +1,6 @@
 import {
   AGREEMENT_INDEX
-} from "../constants/agreements";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

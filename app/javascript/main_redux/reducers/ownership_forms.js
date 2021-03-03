@@ -1,6 +1,6 @@
 import {
   OWNERSHIP_FORM_INDEX
-} from "../constants/ownership_forms";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

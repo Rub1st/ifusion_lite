@@ -1,6 +1,6 @@
 import {
   OWNERSHIP_FORM_INDEX
-} from "../constants/ownership_forms";
+} from "../constants";
 
 export const ownershipFormIndex = (forms) => ({
   type: OWNERSHIP_FORM_INDEX,

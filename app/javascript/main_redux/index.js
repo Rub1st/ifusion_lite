@@ -13,6 +13,14 @@ import {
   InvoiceReducer,
   AgreementReducer,
   OperationReducer,
+  ArrivalProductReducer,
+  CostReducer,
+  ProductGroupReducer,
+  ProductSubgroupReducer,
+  UnitReducer,
+  RateVatReducer,
+  ActReducer,
+  ActProductsReducer
 } from "./reducers";
 
 const Reducer = combineReducers({
@@ -29,6 +37,14 @@ const Reducer = combineReducers({
   invoices: InvoiceReducer,
   operations: OperationReducer,
   agreements: AgreementReducer,
+  arrival_products: ArrivalProductReducer,
+  costs: CostReducer,
+  product_groups: ProductGroupReducer,
+  product_subgroups: ProductSubgroupReducer,
+  units: UnitReducer,
+  rate_vats: RateVatReducer,
+  acts: ActReducer,
+  act_products: ActProductsReducer
 });
 
 export default Reducer;

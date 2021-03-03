@@ -1,1 +1,0 @@
-export const OPERATION_INDEX = 'OPERATION_INDEX'

@@ -1,6 +1,6 @@
 import {
   ORGANIZATION_INDEX
-} from "../constants/organizations";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

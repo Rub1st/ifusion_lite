@@ -1,6 +1,6 @@
 import {
   CONTRACT_INDEX
-} from "../constants/contracts";
+} from "../constants";
 
 export const contractIndex = (contracts) => ({
   type: CONTRACT_INDEX,

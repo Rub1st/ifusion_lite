@@ -1,6 +1,6 @@
 import {
   TYPE_OF_EXCHANGES_INDEX
-} from "../constants/type_of_exchanges";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

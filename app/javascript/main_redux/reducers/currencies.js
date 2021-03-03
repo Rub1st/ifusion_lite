@@ -1,6 +1,6 @@
 import {
   CURRENCIES_INDEX
-} from "../constants/currencies";
+} from "../constants";
 import { toast } from "react-toastify";
 
 let initialState = {

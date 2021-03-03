@@ -1,6 +1,6 @@
 import {
   WAREHOUSE_INDEX
-} from "../constants/warehouses";
+} from "../constants";
 
 export const warehouseIndex = (warehouses) => ({
   type: WAREHOUSE_INDEX,

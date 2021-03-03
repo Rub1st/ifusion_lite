@@ -1,1 +1,0 @@
-export const INVOICE_INDEX = 'INVOICE_INDEX'
