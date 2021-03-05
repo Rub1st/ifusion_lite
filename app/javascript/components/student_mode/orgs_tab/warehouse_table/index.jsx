@@ -60,7 +60,7 @@ const Warehouses = (props) => {
                 </div>
               </div>
               <div>
-                <div>
+                <div className='add-form-column'>
                   <SelectedInput
                     label={'Организация'}
                     classes={classes}

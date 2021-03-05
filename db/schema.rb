@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
 
   create_table "costs", force: :cascade do |t|
     t.bigint "invoice_product_id", null: false
-    t.float "wholesale_percent", default: 0.0, null: false
+    t.float "wholesale_percent", null: false
     t.float "wholesale_value", default: 0.0, null: false
-    t.float "commercial_percent", default: 0.0, null: false
+    t.float "commercial_percent", null: false
     t.float "commercial_value", default: 0.0, null: false
     t.float "vat_percent", default: 0.0, null: false
     t.float "vat_value", default: 0.0, null: false
@@ -110,13 +110,13 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
   end
 
   create_table "invoice_products", force: :cascade do |t|
-    t.string "full_name", default: "", null: false
-    t.string "short_name", default: "", null: false
+    t.string "name", default: "", null: false
     t.string "code", default: "", null: false
-    t.float "price", default: 0.0, null: false
-    t.integer "count", default: 0, null: false
+    t.float "price", null: false
+    t.integer "count", null: false
     t.float "summa_vat", default: 0.0, null: false
     t.float "cost", default: 0.0, null: false
+    t.float "cost_with_vat", default: 0.0, null: false
     t.bigint "rate_vat_id", null: false
     t.bigint "unit_id", null: false
     t.bigint "product_subgroup_id", null: false

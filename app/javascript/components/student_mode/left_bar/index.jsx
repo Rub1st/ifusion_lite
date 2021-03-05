@@ -41,8 +41,8 @@ const barStructure = [
       },
       {
         id: 2,
-        label: 'Товары накладных',
-        path: 'invoice_product'
+        label: 'Товары прихода',
+        path: 'arrival_product'
       },
       {
         id: 3,

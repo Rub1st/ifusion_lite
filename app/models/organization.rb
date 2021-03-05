@@ -26,8 +26,8 @@ class Organization < ApplicationRecord
   validates :ownership_form_id, presence: { message: 'не может быть пустым' }
   validates :address, presence: { message: 'не может быть пустым' }
 
-  validates :unp, format: { with: /\A\d{9}\z/, message: 'должен состоять из 9 цифр' }
-  validates :unp, uniqueness: { message: 'должен быть уникальным' }
+  validates :unp, format: { with: /\A\d{9}\z/, message: 'должно состоять из 9 цифр' }
+  validates :unp, uniqueness: { message: 'должно быть уникальным' }
 
   validates :email, format: { with: /@/, allow_blank: true, message: 'неверный формат' }
 

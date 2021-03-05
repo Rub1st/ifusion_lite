@@ -19,12 +19,13 @@
 #
 class InvoiceProductSerializer < ActiveModel::Serializer
   attributes :id,
-             :full_name,
-             :short_name,
+             :name,
              :code,
              :price,
              :summa_vat,
              :cost,
+             :count,
+             :cost_with_vat,
              :created_at
 
   belongs_to :user

@@ -4,13 +4,13 @@ import {
 import { toast } from "react-toastify";
 
 let initialState = {
-  arival_products: []
+  arrival_products: []
 };
 
 const ArrivalProductReducer = (state = initialState, action) => {
   switch (action.type) {
     case ARRIVAL_PRODUCT_INDEX: {
-      return { ...state, arival_products: action.value };
+      return { ...state, arrival_products: action.value };
     }
     default: {
       return state;

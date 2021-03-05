@@ -14,6 +14,14 @@ TypeOfPayment.destroy_all
 Currency.destroy_all
 Operation.destroy_all
 Agreement.destroy_all
+ProductGroup.destroy_all
+Unit.destroy_all
+RateVat.destroy_all
+
+product_group = ProductGroup.create!(name: 'продовольственная', user: User.first)
+ProductSubgroup.create!(name: 'кисло-молочная', product_group: product_group, user: User.first)
+Unit.create!(full_name: 'литр', short_name: 'л.', gramms: 1_000, user: User.first)
+RateVat.create!([{ rate: 10, user: User.first }, { rate: 20, user: User.first }])
 
 Operation.create!(
   name: 'покупка',

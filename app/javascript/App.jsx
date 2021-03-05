@@ -8,7 +8,9 @@ import { Button } from "@material-ui/core";
 import LeftBar from "./components/student_mode/left_bar";
 import Warehouses from "./components/student_mode/orgs_tab/warehouse_table";
 import Contracts from "./components/student_mode/contracts_tab/contracts_table";
-import Invoices from "./components/student_mode/invoices_tab/invoces_table";
+import Invoices from "./components/student_mode/invoices_tab/invoices_table";
+import ArrivalProducts from "./components/student_mode/invoices_tab/arrival_products_table";
+import Costs from "./components/student_mode/invoices_tab/costs_table";
 
 function App(props) {
   useEffect(() => {
@@ -25,6 +27,8 @@ function App(props) {
               <Route exact path='/warehouse' component={Warehouses}/>
               <Route exact path='/contract' component={Contracts}/>
               <Route exact path='/invoice' component={Invoices}/>
+              <Route exact path='/arrival_product' component={ArrivalProducts}/>
+              <Route exact path='/cost' component={Costs}/>
             </Switch>
           </LeftBar>
         ) : (

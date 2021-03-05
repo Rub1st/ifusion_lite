@@ -19,4 +19,10 @@
 class Cost < ApplicationRecord
   belongs_to :user
   belongs_to :invoice_product
+
+  validates :invoice_product_id, presence: { message: 'не может быть пустым' }
+  validates :wholesale_percent, presence: { message: 'не может быть пустым' }
+  validates :commercial_percent, presence: { message: 'не может быть пустым' }
+  validates :wholesale_percent, numericality: { message: 'должно быть числом' }
+  validates :commercial_percent, numericality: { message: 'должно быть числом' }
 end

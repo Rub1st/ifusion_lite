@@ -26,14 +26,14 @@ class InvoiceProductsController < ApplicationController
 
   def invoice_products_params
     params.require(:invoice_product).permit(
-      :full_name,
-      :short_name,
+      :name,
       :code,
       :price,
       :summa_vat,
+      :count,
       :cost,
-      :rate_vat,
-      :unit,
+      :rate_vat_id,
+      :unit_id,
       :product_subgroup_id,
       :invoice_id,
       :user_id

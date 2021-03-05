@@ -36,6 +36,6 @@ class Contract < ApplicationRecord
   validates :type_of_contract_id, presence: { message: 'не может быть пустым' }
   validates :provider_id, presence: { message: 'не может быть пустым' }
   validates :customer_id, presence: { message: 'не может быть пустым' }
-  validates :series_and_number, format: { with: /\A\d{12}\z/, message: 'должен состоять из 12 цифр' }
-  validates :series_and_number, uniqueness: { message: 'должен быть уникальным' }
+  validates :series_and_number, format: { with: /\A\d+\z/, message: 'должно состоять из цифр' }
+  validates :series_and_number, uniqueness: { message: 'должно быть уникальным' }
 end

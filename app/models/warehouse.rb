@@ -16,6 +16,6 @@ class Warehouse < ApplicationRecord
   belongs_to :organization
 
   validates :address, presence: { message: 'не может быть пустым' }
-  validates :address, uniqueness: { message: 'должен быть уникальным' }
+  validates :address, uniqueness: { message: 'должно быть уникальным' }
   validates :organization_id, presence: { message: 'не может быть пустым' }
 end

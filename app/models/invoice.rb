@@ -29,8 +29,8 @@ class Invoice < ApplicationRecord
   belongs_to :contract
   belongs_to :agreement
   belongs_to :user
-  belongs_to :provider_warehouse, class_name: 'Warehouse'
-  belongs_to :customer_warehouse, class_name: 'Warehouse'
+  belongs_to :provider_warehouse, class_name: 'Warehouse', dependent: :destroy
+  belongs_to :customer_warehouse, class_name: 'Warehouse', dependent: :destroy
   has_many :act_of_discrepancies, dependent: :destroy
   has_many :invoice_products, dependent: :destroy
 
@@ -41,7 +41,7 @@ class Invoice < ApplicationRecord
   validates :agreement_id, presence: { message: 'не может быть пустым' }
   validates :provider_warehouse_id, presence: { message: 'не может быть пустым' }
   validates :customer_warehouse_id, presence: { message: 'не может быть пустым' }
-  validates :series_and_number, format: { with: /\A\d{12}\z/, message: 'должен состоять из 12 цифр' }
-  validates :series_and_number, uniqueness: { message: 'должен быть уникальным' }
+  validates :series_and_number, format: { with: /\A\d{7}\z/, message: 'должно состоять из 12 цифр' }
+  validates :series_and_number, uniqueness: { message: 'должно быть уникальным' }
 end
 
