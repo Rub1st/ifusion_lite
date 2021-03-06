@@ -46,6 +46,16 @@ const barStructure = [
       },
       {
         id: 3,
+        label: 'Товары расхода',
+        path: 'expense_product'
+      },
+      {
+        id: 4,
+        label: 'Товары остатка',
+        path: 'balance_product'
+      },
+      {
+        id: 5,
         label: 'Цены',
         path: 'cost'
       }

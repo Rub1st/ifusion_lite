@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :costs, only: %i[create destroy index]
   resources :act_of_discrepancies, only: %i[create destroy index]
   resources :act_of_discrepancies_products, only: %i[create destroy index]
+  resources :expense_products, only: %i[create destroy index]
 
   resources :ownership_forms, only: %i[index]
   resources :type_of_exchanges, only: %i[index]
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   resources :rate_vats, only: %i[index]
   resources :product_groups, only: %i[index]
   resources :product_subgroups, only: %i[index]
+  resources :cash_registers, only: %i[index]
+  resources :balance_products, only: %i[index]
 
   root to: 'home#index'
 

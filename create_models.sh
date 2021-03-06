@@ -23,6 +23,22 @@
 # rails generate model ActOfDiscrepanciesProduct code:string invoice_product:references act_of_discrepancy:references --force
 # rails generate model Cost invoice_product:references wholesale_percent:float wholesale_value:float commercial_percent:float commercial_value:float vat_percent:float vat_value:float retail_price:float cost:float --force
 
+rails generate model CashRegister name:string --force
+rails generate model BalanceProduct invoice_product:references balance:integer date_and_time:datetime --force
+rails generate model ExpenseProduct balance_product:references cash_register:references count:integer date_and_time: --force
+
+rails generate serializer CashRegister
+rails generate serializer BalanceProduct
+rails generate serializer ExpenseProduct
+
+rails g controller CashRegistersController
+rails g controller BalanceProductsController
+rails g controller ExpenseProductsController
+
+rails g controller admin/CashRegistersController
+rails g controller admin/BalanceProductsController
+rails g controller admin/ExpenseProductsController
+
 # rails generate serializer Operation
 # rails generate serializer Agreement
 # rails generate serializer StatusOfAcceptance

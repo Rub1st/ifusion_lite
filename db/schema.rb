@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_163148) do
+ActiveRecord::Schema.define(version: 2021_03_06_091218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
 
   create_table "act_of_discrepancies_products", force: :cascade do |t|
     t.string "code", default: "", null: false
+    t.integer "count", null: false
     t.bigint "invoice_product_id", null: false
     t.bigint "act_of_discrepancy_id", null: false
     t.bigint "user_id", null: false
@@ -58,6 +59,25 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_agreements_on_user_id"
+  end
+
+  create_table "balance_products", force: :cascade do |t|
+    t.bigint "invoice_product_id", null: false
+    t.integer "balance", null: false
+    t.datetime "date_and_time", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["invoice_product_id"], name: "index_balance_products_on_invoice_product_id"
+    t.index ["user_id"], name: "index_balance_products_on_user_id"
+  end
+
+  create_table "cash_registers", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cash_registers_on_user_id"
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -107,6 +127,19 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_currencies_on_user_id"
+  end
+
+  create_table "expense_products", force: :cascade do |t|
+    t.bigint "balance_product_id", null: false
+    t.bigint "cash_register_id", null: false
+    t.integer "count", null: false
+    t.string "date_and_time", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["balance_product_id"], name: "index_expense_products_on_balance_product_id"
+    t.index ["cash_register_id"], name: "index_expense_products_on_cash_register_id"
+    t.index ["user_id"], name: "index_expense_products_on_user_id"
   end
 
   create_table "invoice_products", force: :cascade do |t|
@@ -284,6 +317,9 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
   add_foreign_key "act_of_discrepancies_products", "invoice_products"
   add_foreign_key "act_of_discrepancies_products", "users"
   add_foreign_key "agreements", "users"
+  add_foreign_key "balance_products", "invoice_products"
+  add_foreign_key "balance_products", "users"
+  add_foreign_key "cash_registers", "users"
   add_foreign_key "contracts", "currencies"
   add_foreign_key "contracts", "organizations", column: "customer_id"
   add_foreign_key "contracts", "organizations", column: "provider_id"
@@ -294,6 +330,9 @@ ActiveRecord::Schema.define(version: 2021_02_01_163148) do
   add_foreign_key "costs", "invoice_products"
   add_foreign_key "costs", "users"
   add_foreign_key "currencies", "users"
+  add_foreign_key "expense_products", "balance_products"
+  add_foreign_key "expense_products", "cash_registers"
+  add_foreign_key "expense_products", "users"
   add_foreign_key "invoice_products", "invoices"
   add_foreign_key "invoice_products", "product_subgroups"
   add_foreign_key "invoice_products", "rate_vats"

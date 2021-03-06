@@ -19,6 +19,9 @@ import UnitReducer from './units'
 import RateVatReducer from './rate_vats'
 import ActReducer from './acts'
 import ActProductsReducer from './act_products'
+import BalanceProductReducer from './balance_products'
+import CashRegisterReducer from './cash_registers'
+import ExpenseProductReducer from './expense_products'
 
 export {
   UserReducer,
@@ -41,5 +44,8 @@ export {
   UnitReducer,
   RateVatReducer,
   ActReducer,
-  ActProductsReducer
+  ActProductsReducer,
+  BalanceProductReducer,
+  CashRegisterReducer,
+  ExpenseProductReducer,
 };

@@ -13,6 +13,7 @@
 class ActOfDiscrepanciesProductSerializer < ActiveModel::Serializer
   attributes :id,
              :code,
+             :count,
              :created_at
 
   belongs_to :invoice_product

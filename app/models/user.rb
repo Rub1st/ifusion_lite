@@ -36,6 +36,9 @@ class User < ApplicationRecord
   has_many :type_of_payments, dependent: :destroy
   has_many :units, dependent: :destroy
   has_many :warehouses, dependent: :destroy
+  has_many :cash_registers, dependent: :destroy
+  has_many :balance_products, dependent: :destroy
+  has_many :expense_products, dependent: :destroy
 
   enum user_role: %i[common admin]
 

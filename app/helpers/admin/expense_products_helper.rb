@@ -1,0 +1,2 @@
+module Admin::ExpenseProductsHelper
+end

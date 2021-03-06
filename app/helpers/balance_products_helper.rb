@@ -1,0 +1,2 @@
+module BalanceProductsHelper
+end

@@ -27,6 +27,7 @@ module Admin
 
     def act_of_discrepancies_params
       params.require(:act_of_discrepancy).permit(
+        :series_and_number,
         :date_and_time,
         :strings_count,
         :total_count,

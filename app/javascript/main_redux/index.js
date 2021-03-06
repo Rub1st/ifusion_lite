@@ -20,7 +20,10 @@ import {
   UnitReducer,
   RateVatReducer,
   ActReducer,
-  ActProductsReducer
+  ActProductsReducer,
+  BalanceProductReducer,
+  CashRegisterReducer,
+  ExpenseProductReducer,
 } from "./reducers";
 
 const Reducer = combineReducers({
@@ -44,7 +47,10 @@ const Reducer = combineReducers({
   units: UnitReducer,
   rate_vats: RateVatReducer,
   acts: ActReducer,
-  act_products: ActProductsReducer
+  act_products: ActProductsReducer,
+  balance_products: BalanceProductReducer,
+  cash_registers: CashRegisterReducer,
+  expense_products: ExpenseProductReducer,
 });
 
 export default Reducer;

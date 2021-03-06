@@ -28,4 +28,13 @@ class ActOfDiscrepancy < ApplicationRecord
   belongs_to :provider_warehouse, class_name: 'Warehouse'
   belongs_to :customer_warehouse, class_name: 'Warehouse'
   has_many :act_of_discrepancies_products, dependent: :destroy
+
+  validates :series_and_number, presence: { message: 'не может быть пустым' }
+  validates :currency_id, presence: { message: 'не может быть пустым' }
+  validates :operation_id, presence: { message: 'не может быть пустым' }
+  validates :invoice_id, presence: { message: 'не может быть пустым' }
+  validates :provider_warehouse_id, presence: { message: 'не может быть пустым' }
+  validates :customer_warehouse_id, presence: { message: 'не может быть пустым' }
+  validates :series_and_number, format: { with: /\A\d{7}\z/, message: 'должно состоять из 7 цифр' }
+  validates :series_and_number, uniqueness: { message: 'должно быть уникальным' }
 end

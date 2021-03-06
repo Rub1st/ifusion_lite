@@ -25,7 +25,9 @@ class ActOfDiscrepanciesProductsController < ApplicationController
   end
 
   def act_of_discrepancies_products_params
-    params.require(:act_of_discrepancy_product).permit(
+    params.require(:act_of_discrepancies_product).permit(
+      :code,
+      :count,
       :invoice_product_id,
       :act_of_discrepancy_id,
       :user_id

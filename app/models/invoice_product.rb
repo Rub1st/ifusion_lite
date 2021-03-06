@@ -25,6 +25,7 @@ class InvoiceProduct < ApplicationRecord
   belongs_to :user
   has_many :act_of_discrepancies_products, dependent: :destroy
   has_many :costs, dependent: :destroy
+  has_many :balance_products, dependent: :destroy
 
   validates :code, presence: { message: 'не может быть пустым' }
   validates :name, presence: { message: 'не может быть пустым' }

@@ -11,6 +11,8 @@ import Contracts from "./components/student_mode/contracts_tab/contracts_table";
 import Invoices from "./components/student_mode/invoices_tab/invoices_table";
 import ArrivalProducts from "./components/student_mode/invoices_tab/arrival_products_table";
 import Costs from "./components/student_mode/invoices_tab/costs_table";
+import Acts from "./components/student_mode/acts_tab/acts_table";
+import ActProducts from "./components/student_mode/acts_tab/act_products_table";
 
 function App(props) {
   useEffect(() => {
@@ -29,6 +31,8 @@ function App(props) {
               <Route exact path='/invoice' component={Invoices}/>
               <Route exact path='/arrival_product' component={ArrivalProducts}/>
               <Route exact path='/cost' component={Costs}/>
+              <Route exact path='/act' component={Acts}/>
+              <Route exact path='/act_product' component={ActProducts}/>
             </Switch>
           </LeftBar>
         ) : (
