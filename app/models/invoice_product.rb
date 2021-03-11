@@ -35,7 +35,7 @@ class InvoiceProduct < ApplicationRecord
   validates :unit_id, presence: { message: 'не может быть пустым' }
   validates :product_subgroup_id, presence: { message: 'не может быть пустым' }
   validates :invoice_id, presence: { message: 'не может быть пустым' }
-  validates :code, format: { with: /\A\d{4}\z/, message: 'должно состоять из 12 цифр' }
+  validates :code, format: { with: /\A\d{4}\z/, message: 'должно состоять из 4 цифр' }
   validates :code, uniqueness: { message: 'должно быть уникальным' }
   validates :price, numericality: { message: 'должно быть числом' }
   validates :count, numericality: { message: 'должно быть числом' }

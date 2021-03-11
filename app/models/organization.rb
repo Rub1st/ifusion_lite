@@ -16,8 +16,6 @@
 #  updated_at        :datetime         not null
 #
 class Organization < ApplicationRecord
-  default_scope { order(created_at: :desc) }
-
   belongs_to :user
   belongs_to :ownership_form
   has_many :warehouses, dependent: :destroy

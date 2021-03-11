@@ -16,6 +16,14 @@ import { organizationIndex } from '../../../../main_redux/actions/organizations'
 import { ownershipFormIndex } from '../../../../main_redux/actions/ownership_forms';
 import { destroy, get, post } from '../../../../main_redux/actions/server_connections';
 
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    phone: el.phone ? el.phone : '-',
+    email: el.email ? el.email : '-'
+  })
+)
+
 const Organizations = (props) => {
 
     const classes = useStyles();
@@ -67,7 +75,7 @@ const Organizations = (props) => {
               icons={tableIcons}
               title={'Организации'}
               columns={columns}
-              data={props.organizations}
+              data={dataFormatter(props.organizations)}
               editable={edits}
             />
             <div className='add-form'>

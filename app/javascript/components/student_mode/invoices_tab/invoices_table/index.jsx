@@ -3,7 +3,6 @@ import { tableIcons } from '../../../utils/table_icons'
 import {
   useSelectBox,
   useInputText,
-  useCheckBox,
   useStyles,
   useDateTime,
   SelectedInput
@@ -12,17 +11,25 @@ import { connect } from "react-redux";
 import MaterialTable from "material-table";
 import { Button, TextField } from '@material-ui/core';
 import './style.css'
-import { organizationIndex } from '../../../../main_redux/actions/organizations';
 import { destroy, get, post } from '../../../../main_redux/actions/server_connections';
 import { contractIndex } from '../../../../main_redux/actions/contracts';
 import { currenciesIndex } from '../../../../main_redux/actions/currencies';
-import { typeOfPaymentsIndex } from '../../../../main_redux/actions/type_of_payments';
-import { typeOfExchangesIndex } from '../../../../main_redux/actions/type_of_exchanges';
-import { typeOfContractsIndex } from '../../../../main_redux/actions/type_of_contracts';
 import { invoiceIndex } from '../../../../main_redux/actions/invoices';
 import { operationIndex } from '../../../../main_redux/actions/operations';
 import { agreementIndex } from '../../../../main_redux/actions/agreements';
 import { warehouseIndex } from '../../../../main_redux/actions/warehouses';
+import { dateFormatter } from '../../../utils';
+
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    summa: el.summa.toFixed(2),
+    summa_vat: el.summa_vat.toFixed(2),
+    summa_with_vat: el.summa_with_vat.toFixed(2),
+    date_and_time: el.date_and_time ? dateFormatter(el.date_and_time) : '-',
+    note: el.note ? el.note : '-'
+  })
+)
 
 const Invoices = (props) => {
 
@@ -45,7 +52,7 @@ const Invoices = (props) => {
 
     const columns = [
       { title: "Серия и номер", field: "series_and_number" },
-      { title: "Дата и время", field: "date_and_time" },
+      { title: "Дата", field: "date_and_time" },
       { title: "Количество позиций", field: "strings_count" },
       { title: "Количество товаров", field: "total_count" },
       { title: "Сумма", field: "summa" },
@@ -85,7 +92,7 @@ const Invoices = (props) => {
               icons={tableIcons}
               title={'Товарно-транспортные накладные'}
               columns={columns}
-              data={props.invoices}
+              data={dataFormatter(props.invoices)}
               editable={edits}
             />
             <div className='contract-add-form'>

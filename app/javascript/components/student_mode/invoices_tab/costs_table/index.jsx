@@ -20,6 +20,19 @@ import { unitIndex } from '../../../../main_redux/actions/units';
 import { productSubgroupIndex } from '../../../../main_redux/actions/product_subgroups';
 import { costIndex } from '../../../../main_redux/actions/costs';
 
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    price: el.invoice_product.price.toFixed(2),
+    wholesale_value: el.wholesale_value.toFixed(2),
+    commercial_value: el.commercial_value.toFixed(2),
+    vat_value: el.vat_value.toFixed(2),
+    retail_price: el.retail_price.toFixed(2),
+    cost: el.cost.toFixed(2)
+  })
+)
+
+
 const Costs = (props) => {
 
     const classes = useStyles();
@@ -38,7 +51,7 @@ const Costs = (props) => {
       { title: "Ед.изм./название", field: "invoice_product.unit.short_name" },
       { title: "Ед.изм./граммы", field: "invoice_product.unit.gramms" },
       { title: "Кол-во", field: "invoice_product.count" },
-      { title: "Цена", field: "invoice_product.price" },
+      { title: "Цена", field: "price" },
       { title: "Опт. надбавка %", field: "wholesale_percent" },
       { title: "Опт. надбавка Z", field: "wholesale_value" },
       { title: "Торг. надбавка %", field: "commercial_percent" },
@@ -69,7 +82,7 @@ const Costs = (props) => {
               icons={tableIcons}
               title={'Цены'}
               columns={columns}
-              data={props.costs}
+              data={dataFormatter(props.costs)}
               editable={edits}
             />
             <div className='add-form'>

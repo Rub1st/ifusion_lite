@@ -15,6 +15,15 @@ import { invoiceIndex } from '../../../../main_redux/actions/invoices';
 import { actProductIndex } from '../../../../main_redux/actions/act_products';
 import { actIndex } from '../../../../main_redux/actions/acts';
 import { arrivalProductIndex } from '../../../../main_redux/actions/arrival_products';
+import { dateFormatter } from '../../../utils';
+
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    cost: el.cost.toFixed(2),
+    date_and_time: el.act_of_discrepancy.date_and_time ? dateFormatter(el.act_of_discrepancy.date_and_time) : '-',
+  })
+)
 
 const ActProducts = (props) => {
 
@@ -37,7 +46,7 @@ const ActProducts = (props) => {
       { title: "Продукт", field: "invoice_product.name"},
       { title: "Кол-во", field: "count"},
       { title: "Стоимость", field: "cost"},
-      { title: "Дата и время", field: "act_of_discrepancy.date_and_time" },
+      { title: "Дата оформления", field: "date_and_time" },
     ]
 
     useEffect(() => {
@@ -59,7 +68,7 @@ const ActProducts = (props) => {
               icons={tableIcons}
               title={'Товары актов расхождений'}
               columns={columns}
-              data={props.act_products}
+              data={dataFormatter(props.act_products)}
               editable={edits}
             />
             <div className='contract-add-form'>

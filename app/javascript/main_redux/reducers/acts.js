@@ -16,6 +16,6 @@ const ActReducer = (state = initialState, action) => {
       return state;
     }
   }
-};
+}
 
 export default ActReducer;

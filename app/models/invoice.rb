@@ -22,15 +22,13 @@
 #  updated_at            :datetime         not null
 #
 class Invoice < ApplicationRecord
-  default_scope { order(created_at: :desc) }
-
   belongs_to :operation
   belongs_to :currency
   belongs_to :contract
   belongs_to :agreement
   belongs_to :user
-  belongs_to :provider_warehouse, class_name: 'Warehouse', dependent: :destroy
-  belongs_to :customer_warehouse, class_name: 'Warehouse', dependent: :destroy
+  belongs_to :provider_warehouse, class_name: 'Warehouse'
+  belongs_to :customer_warehouse, class_name: 'Warehouse'
   has_many :act_of_discrepancies, dependent: :destroy
   has_many :invoice_products, dependent: :destroy
 

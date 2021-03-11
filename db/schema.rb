@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
   create_table "act_of_discrepancies_products", force: :cascade do |t|
     t.string "code", default: "", null: false
     t.integer "count", null: false
+    t.float "cost", default: 0.0, null: false
     t.bigint "invoice_product_id", null: false
     t.bigint "act_of_discrepancy_id", null: false
     t.bigint "user_id", null: false
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
     t.bigint "balance_product_id", null: false
     t.bigint "cash_register_id", null: false
     t.integer "count", null: false
+    t.float "cost", default: 0.0, null: false
     t.string "date_and_time", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

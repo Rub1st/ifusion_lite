@@ -17,6 +17,18 @@ import { invoiceIndex } from '../../../../main_redux/actions/invoices';
 import { operationIndex } from '../../../../main_redux/actions/operations';
 import { actIndex } from '../../../../main_redux/actions/acts';
 import { warehouseIndex } from '../../../../main_redux/actions/warehouses';
+import { dateFormatter } from '../../../utils';
+
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    summa: el.summa.toFixed(2),
+    summa_vat: el.summa_vat.toFixed(2),
+    summa_with_vat: el.summa_with_vat.toFixed(2),
+    date_and_time: el.date_and_time ? dateFormatter(el.date_and_time) : '-',
+    note: el.note ? el.note : '-'
+  })
+)
 
 const Acts = (props) => {
 
@@ -40,7 +52,7 @@ const Acts = (props) => {
 
     const columns = [
       { title: "Серия и номер", field: "series_and_number" },
-      { title: "Дата и время", field: "date_and_time" },
+      { title: "Дата", field: "date_and_time" },
       { title: "Количество позиций", field: "strings_count" },
       { title: "Количество товаров", field: "total_count" },
       { title: "Сумма", field: "summa" },
@@ -75,7 +87,7 @@ const Acts = (props) => {
               icons={tableIcons}
               title={'Акты расхождений'}
               columns={columns}
-              data={props.acts}
+              data={dataFormatter(props.acts)}
               editable={edits}
             />
             <div className='contract-add-form'>

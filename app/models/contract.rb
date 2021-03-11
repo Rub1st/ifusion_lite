@@ -18,8 +18,6 @@
 #  updated_at          :datetime         not null
 #
 class Contract < ApplicationRecord
-  default_scope { order(created_at: :desc) }
-
   belongs_to :currency
   belongs_to :type_of_exchange
   belongs_to :type_of_payment

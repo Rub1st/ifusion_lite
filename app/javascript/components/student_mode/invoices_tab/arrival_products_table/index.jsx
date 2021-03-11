@@ -18,6 +18,18 @@ import { arrivalProductIndex } from '../../../../main_redux/actions/arrival_prod
 import { rateVatIndex } from '../../../../main_redux/actions/rate_vats';
 import { unitIndex } from '../../../../main_redux/actions/units';
 import { productSubgroupIndex } from '../../../../main_redux/actions/product_subgroups';
+import { dateFormatter } from '../../../utils';
+
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    price: el.price.toFixed(2),
+    cost: el.cost.toFixed(2),
+    summa_vat: el.summa_vat.toFixed(2),
+    cost_with_vat: el.cost_with_vat.toFixed(2),
+    date_and_time: el.invoice.date_and_time ? dateFormatter(el.invoice.date_and_time) : '-',
+  })
+)
 
 const ArrivalProducts = (props) => {
 
@@ -48,7 +60,7 @@ const ArrivalProducts = (props) => {
       { title: "Рейтинг НДС", field: "rate_vat.rate" },
       { title: "Ед.изм./название", field: "unit.short_name" },
       { title: "Ед.изм./граммы", field: "unit.gramms" },
-      { title: "Дата оформления", field: "invoice.date_and_time" },
+      { title: "Дата оформления", field: "date_and_time" },
     ]
 
     useEffect(() => {
@@ -72,7 +84,7 @@ const ArrivalProducts = (props) => {
               icons={tableIcons}
               title={'Товары прихода'}
               columns={columns}
-              data={props.arrival_products}
+              data={dataFormatter(props.arrival_products)}
               editable={edits}
             />
             <div className='contract-add-form'>

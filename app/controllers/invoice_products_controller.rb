@@ -1,11 +1,21 @@
 class InvoiceProductsController < ApplicationController
   def create
-    new_invoice_product = InvoiceProduct.new(invoice_products_params)
-    render_created_data(new_invoice_product, invoice_products)
+    temp = InvoiceProduct.create(invoice_products_params)
+    if temp.save
+      temp.destroy
+      InvoiceProductsService::Create.call(invoice_products_params, current_user)
+      render json: invoice_products
+    else
+      render json: { errors: temp.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    invoice_id = invoice_product.invoice_id
+
     invoice_product.destroy
+
+    InvoiceProductsService::Destroy.call(invoice_id)
 
     render json: invoice_products
   end

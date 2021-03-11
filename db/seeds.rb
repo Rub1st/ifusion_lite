@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
 Organization.destroy_all
 OwnershipForm.destroy_all
@@ -17,6 +17,9 @@ Agreement.destroy_all
 ProductGroup.destroy_all
 Unit.destroy_all
 RateVat.destroy_all
+CashRegister.destroy_all
+
+CashRegister.create(name: 'Касса №1', user: User.first)
 
 product_group = ProductGroup.create!(name: 'продовольственная', user: User.first)
 ProductSubgroup.create!(name: 'кисло-молочная', product_group: product_group, user: User.first)
@@ -93,12 +96,12 @@ Organization.create!(
 )
 
 Organization.create!(
-  name: 'ООО "Горбуша"',
+  name: 'ООО "КБиП"',
   unp: '650436954',
   address: 'г. Минск',
   phone: '+375445895099',
-  provider: true,
-  buyer: false,
+  provider: false,
+  buyer: true,
   ownership_form: ownership_form,
   user: User.first
 )

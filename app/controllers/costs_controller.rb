@@ -1,7 +1,13 @@
 class CostsController < ApplicationController
   def create
-    new_cost = Cost.new(costs_params)
-    render_created_data(new_cost, costs)
+    temp = Cost.create(costs_params)
+    if temp.save
+      temp.destroy
+      cost = CostsService::Create.call(costs_params, current_user)
+      render_created_data(cost, costs)
+    else
+      render json: { errors: temp.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -27,13 +33,7 @@ class CostsController < ApplicationController
   def costs_params
     params.require(:cost).permit(
       :wholesale_percent,
-      :wholesale_value,
       :commercial_percent,
-      :commercial_value,
-      :vat_percent,
-      :vat_value,
-      :retail_price,
-      :cost,
       :invoice_product_id,
       :user_id
     )

@@ -19,6 +19,16 @@ import { currenciesIndex } from '../../../../main_redux/actions/currencies';
 import { typeOfPaymentsIndex } from '../../../../main_redux/actions/type_of_payments';
 import { typeOfExchangesIndex } from '../../../../main_redux/actions/type_of_exchanges';
 import { typeOfContractsIndex } from '../../../../main_redux/actions/type_of_contracts';
+import { dateFormatter } from '../../../utils';
+
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    valid_from: el.valid_from ? dateFormatter(el.valid_from) : '-',
+    valid_for: el.valid_for ? dateFormatter(el.valid_for) : '-',
+    note: el.note ? el.note : '-'
+  })
+)
 
 const Contracts = (props) => {
 
@@ -74,7 +84,7 @@ const Contracts = (props) => {
               icons={tableIcons}
               title={'Договоры'}
               columns={columns}
-              data={props.contracts}
+              data={dataFormatter(props.contracts)}
               editable={edits}
             />
             <div className='contract-add-form'>
