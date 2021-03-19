@@ -5,6 +5,21 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  namespace :admin do
+    resources :agreements, only: %i[create destroy index]
+    resources :cash_registers, only: %i[create destroy index]
+    resources :currencies, only: %i[create destroy index]
+    resources :operations, only: %i[create destroy index]
+    resources :ownership_forms, only: %i[create destroy index]
+    resources :product_groups, only: %i[create destroy index]
+    resources :product_subgroups, only: %i[create destroy index]
+    resources :rate_vats, only: %i[create destroy index]
+    resources :type_of_contracts, only: %i[create destroy index]
+    resources :type_of_exchanges, only: %i[create destroy index]
+    resources :type_of_payments, only: %i[create destroy index]
+    resources :units, only: %i[create destroy index]
+  end
+
   resources :organizations, only: %i[create destroy index]
   resources :warehouses, only: %i[create destroy index]
   resources :contracts, only: %i[create destroy index]

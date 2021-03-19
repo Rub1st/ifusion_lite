@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>IfusionLite</title>
+    <head>
+    <title>Ifusion Lite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <%= favicon_link_tag asset_path('logo-kbp.png') %>
+
+    <!-- Bootstrap core CSS -->
+    <meta name="theme-color" content="#7952b3">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .logo{
+        width: 200px;
+        margin-bottom: 25px;
+      }
+
+      .margin-button{
+        margin-top: 20px;
+      }
+
+      .enter-position {
+        width: 300px;
+      }
+
+      .enter-field {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 800px;
+      }
+
+      .remember-me{
+        padding-top: 15px;
+        height: 35px;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <!-- Compiled and minified CSS -->
   </head>
 
   <body>

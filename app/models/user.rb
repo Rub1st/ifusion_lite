@@ -28,9 +28,6 @@ class User < ApplicationRecord
   has_many :product_subgroups, dependent: :destroy
   has_many :product_groups, dependent: :destroy
   has_many :rate_vats, dependent: :destroy
-  has_many :status_of_acceptances, dependent: :destroy
-  has_many :status_of_booting_in_equipments, dependent: :destroy
-  has_many :status_of_price_tag_printings, dependent: :destroy
   has_many :type_of_contracts, dependent: :destroy
   has_many :type_of_exchanges, dependent: :destroy
   has_many :type_of_payments, dependent: :destroy

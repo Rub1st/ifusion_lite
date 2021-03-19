@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { logout } from '../../../main_redux/actions/server_connections'
 import BarEl from './bar_el'
+import icon from '../../../../assets/images/open.png'
 import './style.css'
 
 const barStructure = [
@@ -88,12 +91,21 @@ const LeftBar = (props) => (
                         <BarEl id={el.id} label={el.label} childrenList={el.childrenList}/>
                    </li>)
                 }
+              <div onClick={() => props.logout()} className='exit-button'>
+                Выход
+              </div>
             </ul>
-    </div>
+        </div>
         <div className="children-field">
           {props.children}
         </div>
     </div>
 )
 
-export default LeftBar;
+export default connect(
+  (state) => ({
+  }),
+  (dispatch) => ({
+    logout: () => dispatch(logout()),
+  })
+)(LeftBar);
