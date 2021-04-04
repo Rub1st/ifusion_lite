@@ -244,7 +244,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
   end
 
   create_table "rate_vats", force: :cascade do |t|
-    t.integer "rate", default: 0, null: false
+    t.integer "rate", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
   create_table "units", force: :cascade do |t|
     t.string "short_name", default: "", null: false
     t.string "full_name", default: "", null: false
-    t.float "gramms", default: 0.0, null: false
+    t.float "gramms", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -288,6 +288,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "number", default: "", null: false
     t.integer "user_role", default: 0, null: false
     t.string "name", default: "", null: false
     t.string "reset_password_token"
@@ -295,8 +296,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_091218) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "warehouses", force: :cascade do |t|

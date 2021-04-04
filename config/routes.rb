@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :type_of_exchanges, only: %i[create destroy index]
     resources :type_of_payments, only: %i[create destroy index]
     resources :units, only: %i[create destroy index]
+    resources :students, only: %i[create destroy index]
+    resources :teachers, only: %i[create destroy index]
   end
 
   resources :organizations, only: %i[create destroy index]

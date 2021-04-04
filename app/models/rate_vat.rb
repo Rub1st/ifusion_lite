@@ -11,4 +11,8 @@
 class RateVat < ApplicationRecord
   belongs_to :user
   has_many :invoice_products, dependent: :destroy
+
+  validates :rate, presence: { message: 'не может быть пустым' }
+  validates :rate, numericality: { message: 'должно быть числом' }
+  validates :rate, uniqueness: { message: 'должно быть уникальным' }
 end

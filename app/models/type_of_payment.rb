@@ -11,4 +11,7 @@
 class TypeOfPayment < ApplicationRecord
   belongs_to :user
   has_many :contracts, dependent: :destroy
+
+  validates :name, presence: { message: 'не может быть пустым' }
+  validates :name, uniqueness: { message: 'должно быть уникальным' }
 end

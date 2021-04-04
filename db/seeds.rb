@@ -6,6 +6,7 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 Organization.destroy_all
 OwnershipForm.destroy_all
 TypeOfExchange.destroy_all
@@ -18,6 +19,9 @@ ProductGroup.destroy_all
 Unit.destroy_all
 RateVat.destroy_all
 CashRegister.destroy_all
+
+User.create(name: 'Зиневич', user_role: 1, email: 'А-000', number: '00', password: '00')
+User.create(name: 'Супкин Иван Васильевич', email: 'К-867', number: '17', password: '17')
 
 CashRegister.create(name: 'Касса №1', user: User.first)
 

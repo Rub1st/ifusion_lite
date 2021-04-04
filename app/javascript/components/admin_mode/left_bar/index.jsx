@@ -102,7 +102,7 @@ const barStructure = [
       {
         id: 4,
         label: 'Типы обмена',
-        path: '/admin/exchage_type'
+        path: '/admin/exchange_type'
       },
       {
         id: 5,
@@ -143,6 +143,22 @@ const barStructure = [
         id: 12,
         label: 'Единицы измерения',
         path: '/admin/unit'
+      }
+    ]
+  },
+  {
+    id: 6,
+    label: 'Пользователи',
+    childrenList: [
+      {
+        id: 1,
+        label: 'Преподаватели',
+        path: '/admin/teacher'
+      },
+      {
+        id: 2,
+        label: 'Студенты',
+        path: '/admin/student'
       }
     ]
   },

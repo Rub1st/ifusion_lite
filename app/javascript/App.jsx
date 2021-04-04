@@ -30,6 +30,16 @@ import Agreements from "./components/admin_mode/guides_tab/agreements_table";
 import CashRegisters from "./components/admin_mode/guides_tab/cash_registers_table";
 import ContractTypes from "./components/admin_mode/guides_tab/contract_types_table";
 import Currencies from "./components/admin_mode/guides_tab/currencies_table";
+import ExchangeTypes from "./components/admin_mode/guides_tab/exchange_types_table";
+import Operations from './components/admin_mode/guides_tab/operations_table'
+import OwnershipForms from './components/admin_mode/guides_tab/ownership_forms_table'
+import PaymentTypes from './components/admin_mode/guides_tab/payment_types_table'
+import ProductGroups from './components/admin_mode/guides_tab/product_groups_table'
+import ProductSubgroups from './components/admin_mode/guides_tab/product_subgroups_table'
+import RateVats from './components/admin_mode/guides_tab/rate_vats_table'
+import Units from './components/admin_mode/guides_tab/units_table'
+import Students from "./components/admin_mode/users_tab/students_table";
+import Teachers from "./components/admin_mode/users_tab/teachers_table";
 
 function App(props) {
   useEffect(() => {
@@ -72,6 +82,16 @@ function App(props) {
               <Route exact path='/admin/cash_register' component={CashRegisters}/>
               <Route exact path='/admin/contract_type' component={ContractTypes}/>
               <Route exact path='/admin/currency' component={Currencies}/>
+              <Route exact path='/admin/exchange_type' component={ExchangeTypes}/>
+              <Route exact path='/admin/operation' component={Operations}/>
+              <Route exact path='/admin/ownership_form' component={OwnershipForms}/>
+              <Route exact path='/admin/payment_type' component={PaymentTypes}/>
+              <Route exact path='/admin/product_group' component={ProductGroups}/>
+              <Route exact path='/admin/product_subgroup' component={ProductSubgroups}/>
+              <Route exact path='/admin/rate_vat' component={RateVats}/>
+              <Route exact path='/admin/unit' component={Units}/>
+              <Route exact path='/admin/student' component={Students}/>
+              <Route exact path='/admin/teacher' component={Teachers}/>
             </Switch>
           </AdminLeftBar>
         )

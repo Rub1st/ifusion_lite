@@ -41,6 +41,7 @@ export const update = (obj, path, setter) => (dispatch) => {
 
 //create
 export const post = (obj, path, setter) => (dispatch) => {
+  console.log(obj)
   axios
     .post(`http://localhost:3000/${path}`, obj, {
       "Content-Type": "application/x-www-form-urlencoded",

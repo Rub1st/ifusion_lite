@@ -13,4 +13,8 @@ class ProductSubgroup < ApplicationRecord
   belongs_to :user
   belongs_to :product_group
   has_many :invoice_products, dependent: :destroy
+
+  validates :name, presence: { message: 'не может быть пустым' }
+  validates :name, uniqueness: { message: 'должно быть уникальным' }
+  validates :product_group_id, presence: { message: 'не может быть пустым' }
 end

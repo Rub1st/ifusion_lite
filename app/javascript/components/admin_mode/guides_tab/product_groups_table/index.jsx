@@ -38,7 +38,7 @@ const ProductGroups = (props) => {
         <div className='table-field'>
             <MaterialTable
               icons={tableIcons}
-              title={'Группы продуктов'}
+              title={'Группы товаров'}
               columns={columns}
               data={props.product_groups}
               editable={edits}

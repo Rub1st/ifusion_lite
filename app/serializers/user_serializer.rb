@@ -18,5 +18,6 @@ class UserSerializer < ActiveModel::Serializer
              :email,
              :user_role,
              :name,
+             :number,
              :created_at
 end

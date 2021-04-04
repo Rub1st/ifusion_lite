@@ -11,4 +11,7 @@
 class Agreement < ApplicationRecord
   belongs_to :user
   has_many :invoices, dependent: :destroy
+
+  validates :name, uniqueness: { message: 'должно быть уникальным' }
+  validates :name, presence: { message: 'не может быть пустым' }
 end

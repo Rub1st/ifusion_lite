@@ -7,11 +7,11 @@ class Admin::OwnershipFormsController < ApplicationController
   def destroy
     ownership_form.destroy
 
-    render json: operations
+    render json: ownership_forms
   end
 
   def index
-    render json: operations
+    render json: ownership_forms
   end
 
   private

@@ -18,6 +18,11 @@ const Agreements = (props) => {
     const {state} = props;
     const name = useInputText('');
 
+    let agreement = {
+      name: name.value,
+      user_id: props.currentUser.id
+    }
+
     const columns = [
       { title: "Название", field: "name" }
     ]
@@ -32,6 +37,8 @@ const Agreements = (props) => {
         resolve();
       })
     }
+
+    console.log(props.currentUser)
 
     return (
         <div className='table-field'>
@@ -54,11 +61,7 @@ const Agreements = (props) => {
                 </div>
               </div>
                 <Button className={'btn btn-info btn-position'} onClick={() => {
-                    props.post(
-                        {
-                            name: name.value,
-                            user_id: props.currentUser.id
-                        }, 'admin/agreements', agreementIndex)
+                    props.post(agreement, 'admin/agreements', agreementIndex)
                 }}>Добавить</Button>
             </div>
           <div>

@@ -10,30 +10,42 @@ import { Button, TextField } from '@material-ui/core';
 import './style.css'
 import { destroy, get, post } from '../../../../main_redux/actions/server_connections';
 import { agreementIndex } from '../../../../main_redux/actions/agreements';
-import { unitIndex } from '../../../../main_redux/actions/units';
+import { studentIndex } from '../../../../main_redux/actions/users';
+import { datetimeFormat } from '../../../utils';
 
-const Units = (props) => {
+const dataFormatter = (data) => data.map(el => (
+  {
+    ...el,
+    created_at: datetimeFormat(el.created_at),
+  })
+)
+
+
+const Students = (props) => {
 
     const classes = useStyles();
 
     const {state} = props;
-    const full_name = useInputText('');
-    const short_name = useInputText('');
-    const gramms = useInputText('');
+    const number = useInputText('');
+    const name = useInputText('');
+    const email = useInputText('');
 
     const columns = [
-      { title: "Полное название", field: "full_name" },
-      { title: "Короткое название", field: "short_name" },
-      { title: "Вес в граммах", field: "gramms" }
+      { title: "Номер", field: "number" },
+      { title: "Группа", field: "email" },
+      { title: "Имя", field: "name" },
+      { title: "создано", field: "created_at" }
     ]
 
     useEffect(() => {
-      props.set("admin/units", unitIndex);
+      props.set("admin/students", studentIndex);
     }, []);
+
+    console.log(props.students);
 
     const edits = {
       onRowDelete: (oldData) => new Promise((resolve) => {
-        props.destroy(oldData.id, 'admin/units', unitIndex)
+        props.destroy(oldData.id, 'admin/students', studentIndex)
         resolve();
       })
     }
@@ -42,50 +54,51 @@ const Units = (props) => {
         <div className='table-field'>
             <MaterialTable
               icons={tableIcons}
-              title={'Единицы Измерения'}
+              title={'Студенты'}
               columns={columns}
-              data={props.units}
+              data={dataFormatter(props.students)}
               editable={edits}
             />
             <div className='add-form'>
               <div>
                 <div className='add-form-column'>
                   <TextField
-                    error={props.errors.full_name != undefined}
-                    helperText={props.errors.full_name != undefined ? props.errors.full_name[0] : null}
-                    placeholder="Полное название"
-                    {...full_name}
+                    error={props.errors.number != undefined}
+                    helperText={props.errors.number != undefined ? props.errors.number[0] : null}
+                    placeholder="Номер"
+                    {...number}
                   />
                 </div>
               </div>
               <div>
                 <div className='add-form-column'>
                   <TextField
-                    error={props.errors.short_name != undefined}
-                    helperText={props.errors.short_name != undefined ? props.errors.short_name[0] : null}
-                    placeholder="Короткое название"
-                    {...short_name}
+                    error={props.errors.email != undefined}
+                    helperText={props.errors.email != undefined ? props.errors.email[0] : null}
+                    placeholder="Группа"
+                    {...email}
                   />
                 </div>
               </div>
               <div>
                 <div className='add-form-column'>
                   <TextField
-                    error={props.errors.gramms != undefined}
-                    helperText={props.errors.gramms != undefined ? props.errors.gramms[0] : null}
-                    placeholder="Вес в граммах"
-                    {...gramms}
+                    error={props.errors.name != undefined}
+                    helperText={props.errors.name != undefined ? props.errors.name[0] : null}
+                    placeholder="Ф.И.О."
+                    {...name}
                   />
                 </div>
               </div>
                 <Button className={'btn btn-info btn-position'} onClick={() => {
                     props.post(
                         {
-                          full_name: full_name.value,
-                          short_name: short_name.value,
-                          gramms: gramms.value,
-                          user_id: props.currentUser.id
-                        }, 'admin/units', unitIndex)
+                          name: name.value,
+                          email: email.value,
+                          number: number.value,
+                          user_role: 0,
+                          password: number.value
+                        }, 'admin/students', studentIndex)
                 }}>Добавить</Button>
             </div>
           <div>
@@ -96,7 +109,7 @@ const Units = (props) => {
 
 export default connect(
     state => ({
-      units: state.units.units,
+      students: state.users.students,
       currentUser: state.users.currentUser,
       errors: state.errors.errors
     }),
@@ -105,4 +118,4 @@ export default connect(
       post: (obj, path, setter) => dispatch(post(obj, path, setter)),
       destroy: (id, path, setter) => dispatch(destroy(id, path, setter))
     })
-)(Units);
+)(Students);

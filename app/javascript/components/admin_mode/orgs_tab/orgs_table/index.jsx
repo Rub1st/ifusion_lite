@@ -73,6 +73,8 @@ const AdminOrganizations = (props) => {
       })
     }
 
+    console.log(props.currentUser)
+
     return (
         <div className='table-field'>
             <MaterialTable

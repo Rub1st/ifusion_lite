@@ -40,5 +40,10 @@ class User < ApplicationRecord
   enum user_role: %i[common admin]
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable
+
+  validates :name, uniqueness: { message: 'должно быть уникальным' }
+  validates :name, presence: { message: 'не может быть пустым' }
+  validates :email, presence: { message: 'не может быть пустым' }
+  validates :number, presence: { message: 'не может быть пустым' }
 end
