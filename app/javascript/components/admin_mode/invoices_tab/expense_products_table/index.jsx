@@ -89,6 +89,11 @@ const AdminExpenseProducts = (props) => {
               <div className='add-form-column'>
                   <div className="placeholder">Дата расхода</div>
                   <input type="date" {...date_and_time}/>
+                  {
+                    props.errors.date_and_time != undefined ?
+                    <FormHelperText style={{color: 'red'}}>{props.errors.date_and_time[0]}</FormHelperText> :
+                    null
+                  }
                 </div>
                 <div className='add-form-column'>
                   <TextField

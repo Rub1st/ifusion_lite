@@ -10,7 +10,7 @@ import {
  } from '../../../utils/hooks'
 import { connect } from "react-redux";
 import MaterialTable from "material-table";
-import { Button, TextField } from '@material-ui/core';
+import { Button, FormHelperText, TextField } from '@material-ui/core';
 import './style.css'
 import { organizationIndex } from '../../../../main_redux/actions/organizations';
 import { destroy, get, post } from '../../../../main_redux/actions/server_connections';
@@ -100,10 +100,20 @@ const Contracts = (props) => {
                 <div>
                   <div className="placeholder">Действует с</div>
                   <input type="date" {...valid_from}/>
+                  {
+                    props.errors.valid_from != undefined ?
+                    <FormHelperText style={{color: 'red'}}>{props.errors.valid_from[0]}</FormHelperText> :
+                    null
+                  }
                 </div>
                 <div className='add-form-column'>
                   <div className="placeholder">Действует по</div>
                   <input type="date" {...valid_for}/>
+                  {
+                    props.errors.valid_for != undefined ?
+                    <FormHelperText style={{color: 'red'}}>{props.errors.valid_for[0]}</FormHelperText> :
+                    null
+                  }
                 </div>
                 <TextField
                     error={props.errors.note != undefined}

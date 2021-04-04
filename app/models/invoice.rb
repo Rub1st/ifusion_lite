@@ -41,6 +41,5 @@ class Invoice < ApplicationRecord
   validates :customer_warehouse_id, presence: { message: 'не может быть пустым' }
   validates :series_and_number, format: { with: /\A\d{7}\z/, message: 'должно состоять из 7 цифр' }
   validates :series_and_number, uniqueness: { message: 'должно быть уникальным' }
+  validates :date_and_time, presence: { message: 'не может быть пустым' }
 end
-
-123456789086

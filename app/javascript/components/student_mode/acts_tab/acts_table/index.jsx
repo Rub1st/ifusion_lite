@@ -9,7 +9,7 @@ import {
  } from '../../../utils/hooks'
 import { connect } from "react-redux";
 import MaterialTable from "material-table";
-import { Button, TextField } from '@material-ui/core';
+import { Button, FormHelperText, TextField } from '@material-ui/core';
 import './style.css'
 import { destroy, get, post } from '../../../../main_redux/actions/server_connections';
 import { currenciesIndex } from '../../../../main_redux/actions/currencies';
@@ -103,6 +103,11 @@ const Acts = (props) => {
                 <div className='add-form-column'>
                   <div className="placeholder">Оформлен</div>
                   <input type="date" {...date_and_time}/>
+                  {
+                    props.errors.date_and_time != undefined ?
+                    <FormHelperText style={{color: 'red'}}>{props.errors.date_and_time[0]}</FormHelperText> :
+                    null
+                  }
                 </div>
                 <TextField
                     error={props.errors.note != undefined}
